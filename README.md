@@ -60,7 +60,7 @@ Actual input latency is the worst, because it brings forth both types of artifac
 Measuring each type of latency individually is difficult and requires special equipment. However for the purpose of synchronizing our gameplay that isn't really necessary. In the end we time our perceived input to perceived output, so we're gonna measure and offset the delay between these two events. The perceived input is the finger pushing a button, the output is either the music you hear or the visuals you see depending on how you aim:
 
 **aiming by audio:**    
-This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (eg [Audacity]https://www.audacityteam.org) is free and perfectly suitable).
+This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (eg [Audacity](https://www.audacityteam.org) is free and perfectly suitable).
 
 Since latency depends on both hardware and software, everyone needs to make these measurements themselves, for every game, on every setup. Again, I will use osu! for an example.
 
