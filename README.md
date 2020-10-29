@@ -44,7 +44,7 @@ If the player aims by audio then they will hear the beat 110ms from now and perf
 
 We can fix this by using an audio offset. The computer already knows the entire song in advance, and thus when the beat will kick. we simply play the music 40ms too early while leaving the note where it is, then let the audio latency have its effect which nullifies this shift and get a resulting gameplay experience where beat and note are perfectly aligned.
 
-But what about the hitsound ? Remember how i said "predictable event" in the terminology section? We don't know in advance when exactly the player will actually press the key (or if at all) so we can't predict at which point in time we need to play the hitsound in order to synchronize it with the input. All we can do is play it as soon as we get the signal that the player made an input, at which point we're already doomed to be 40ms late. Audio offset cannot affect hitsounds, which is why many rythm gamers turn off hitsounds and instead listen to their physical keytaps which aren't affected by audio latency in the first place.
+But what about the hitsound ? Remember how I said "predictable event" in the terminology section? We don't know in advance when exactly the player will actually press the key (or if at all) so we can't predict at which point in time we need to play the hitsound in order to synchronize it with the input. All we can do is play it as soon as we get the signal that the player made an input, at which point we're already doomed to be 40ms late. Audio offset cannot affect hitsounds, which is why many rythm gamers turn off hitsounds and instead listen to their physical keytaps which aren't affected by audio latency in the first place.
 
 The same of course applies to aiming by video: the beat kick corresponds to the visuals indicating that you need to perform an input, and hitsounds correspond to the flashing lights.
 
@@ -58,7 +58,7 @@ Keep in mind that hitsounds are unaffected as they aren't predictable, so if you
 
 Fully keysounded maps are completely unaffected by this option.
 
-## local offset
+## Local offset
 
 *Games that have this option include: osu!, StepMania, Quaver, and more*
 
