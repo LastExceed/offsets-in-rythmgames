@@ -87,12 +87,12 @@ This is how rythm games are supposed to be played. All we need for our measureme
 
 Since latency depends on both hardware and software, everyone needs to make these measurements themselves, for every game, on every setup. Again, I will use osu! for an example.
 
-Choose a skin with a clicky hitsound, enable NoFail and enter any mania or taiko map. turn music volume to 0% and hitsounds to 100%. Then put your microphone between speaker and keyboard and start recording. Slam a key and make sure that that both the physical keypress and the digital hitsound can be heard on the recording. Also hold the key briefly before releasing so that keyDown and keyUp are clearly distinguishable on the recording. Then look at the waveform and measure the time that passed between keyDown and hitsound. That number (in negative) should be your global offset. Example: https://i.imgur.com/RdUqlov.png
+Choose a skin with a clicky hitsound, enable NoFail and enter any mania or taiko map. turn music volume to 0% and hitsounds to 100%. Then put your microphone between speaker and keyboard and start recording. Slam a key and make sure that that both the physical keypress and the digital hitsound can be heard on the recording. Also hold the key briefly before releasing so that keyDown and keyUp are clearly distinguishable on the recording. Then look at the waveform and measure the time that passed between keyDown and hitsound. That number (in negative) should be your global offset. ([example](https://i.imgur.com/RdUqlov.png))
 
 **aiming by video:**    
 This is how competitive players often play. For this scenario we basically do the same thing as above but with a highspeed camera instead of a microphone.
 
-Record pushing a button and getting a visual reaction on screen, then count the frames between the two events. Example: https://youtu.be/P1FJGE0_1Tg
+Record pushing a button and getting a visual reaction on screen, then count the frames between the two events. ([example](https://youtu.be/P1FJGE0_1Tg))
 
 ## Notes
 
