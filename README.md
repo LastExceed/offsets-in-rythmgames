@@ -72,6 +72,8 @@ Since the arrows move at a constant speed we can predict where they will be in t
 
 This option too has a catch just like audio offset does with hitsounds: We can't predict when (or if at all) the player will press a key causing flashy light to appear and notes to disappear. These effects are therefore unaffected by visual offset. [Here's an example of what that looks like](https://youtu.be/iaqs6uQg1JI)
 
+Just like audio offset, video offset should always be negative.
+
 ## Input offset
 
 *I know that RoBeats has this pre-configured, and I think StepMania has a setting for this somewhere as well*
@@ -80,14 +82,14 @@ Actual input latency is the worst, because it brings forth both types of artifac
 
 *I really can't recommend using this, EVER. Do yourself a favor and get a proper input device instead*
 
-## Measuring latency
+## Measuring audio- and video offset
 
-Measuring each type of latency individually is difficult. However for the purpose of synchronizing our gameplay that isn't really necessary. In the end we time our perceived input to perceived output, so we're gonna measure and offset the delay between these two events (end-to-end latency). The perceived input is the finger pushing a button, the output is either the music you hear or the visuals you see depending on how you aim:
+Measuring each type of latency individually is difficult. However for the purpose of synchronizing our gameplay that isn't really necessary. In the end we time our perceived input to perceived output, so we're gonna measure and offset the delay between these two events (end-to-end latency). Since latency depends on both hardware and software, everyone needs to make these measurements themselves, for every game, on every setup.
+
+The perceived input is the finger pushing a button, the output is either the music you hear or the visuals you see depending on how you aim. 
 
 **aiming by audio:**    
-This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (e.g. [Audacity](https://www.audacityteam.org) is free and perfectly suitable).
-
-Since latency depends on both hardware and software, everyone needs to make these measurements themselves, for every game, on every setup. Again, I will use osu! for an example.
+This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (e.g. [Audacity](https://www.audacityteam.org) is free and perfectly suitable). Here is an example for osu! (the general strategy is applicable to every game):
 
 Choose a skin with a clicky hitsound, enable NoFail and enter any mania or taiko map. turn music volume to 0% and hitsounds to 100%. Then put your microphone between speaker and keyboard and start recording. Slam a key and make sure that that both the physical keypress and the digital hitsound can be heard on the recording. Also hold the key briefly before releasing so that keyDown and keyUp are clearly distinguishable on the recording. Then look at the waveform and measure the time that passed between keyDown and hitsound. That number (in negative) should be your global offset. ([example](https://i.imgur.com/RdUqlov.png))
 
@@ -96,10 +98,21 @@ This is how competitive players often play. For this scenario we basically do th
 
 Record pushing a button and getting a visual reaction on screen, then count the frames between the two events and set your video offset to the elapsed time. ([example](https://youtu.be/P1FJGE0_1Tg))
 
-## Notes
+## Measuring local offset
+
+This is the one offset that can be carried over between setups, because it depends solely on the beatmap/simfile/chart/whatever-its-called-in-your-game.
+
+*Note: For this measurement the global offset must be 0!*
+
+Let auto-play play the map with hitsounds enabled and see if they align with the music in your audio editor (StepMania players can use clap assist instead). Measure the delay between hitsound and actual beat from the music and re-align it using local offset. If the sounds are too close to each other be able to tell them apart in the waveform you can simply use a temporary local offset to move them further apart and then subtract that from your measurement afterwards.
+
+This offset can be both positive or negative.
+
+## Final notes
 
 - Before offsetting latency, try to reduce it first. check "turn off all enhancements" in windows sound device properties, update drivers, play in exclusive fullscreen, maximize fps, disable vsync, yadda yadda
 
 - Don't bother getting millisecond precision. Latency fluctuates a bit and beatmaps aren't timed that accurately anyway. especially sub-ms precision is pointless because the computer mostly doesn't even read or process user input that accurately, and some games (e.g. osu!) round all timings to full ms anyway
 
 - And always remember rule #1 for self-improvement: Play more
+
