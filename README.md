@@ -1,5 +1,7 @@
 # An in-depth guide to offsets in rythm games
 
+I have yet to find a good explanation of the matter on the internet, so I decided to write one myself. The goal is to not only get the system properly configured, but also understand what is actually happening.
+
 ## Terminology:
 - **"latency"** refers to the amount of time that passes between cause and effect
 - **"offset"** refers to the amount of time by which we shift a predictable event in time to compensate latency
@@ -80,10 +82,10 @@ Actual input latency is the worst, because it brings forth both types of artifac
 
 ## Measuring latency
 
-Measuring each type of latency individually is difficult. However for the purpose of synchronizing our gameplay that isn't really necessary. In the end we time our perceived input to perceived output, so we're gonna measure and offset the delay between these two events. The perceived input is the finger pushing a button, the output is either the music you hear or the visuals you see depending on how you aim:
+Measuring each type of latency individually is difficult. However for the purpose of synchronizing our gameplay that isn't really necessary. In the end we time our perceived input to perceived output, so we're gonna measure and offset the delay between these two events (end-to-end latency). The perceived input is the finger pushing a button, the output is either the music you hear or the visuals you see depending on how you aim:
 
 **aiming by audio:**    
-This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (eg [Audacity](https://www.audacityteam.org) is free and perfectly suitable).
+This is how rythm games are supposed to be played. All we need for our measurement here is a microphone (headset will do) and an audio editor (e.g. [Audacity](https://www.audacityteam.org) is free and perfectly suitable).
 
 Since latency depends on both hardware and software, everyone needs to make these measurements themselves, for every game, on every setup. Again, I will use osu! for an example.
 
@@ -92,7 +94,7 @@ Choose a skin with a clicky hitsound, enable NoFail and enter any mania or taiko
 **aiming by video:**    
 This is how competitive players often play. For this scenario we basically do the same thing as above but with a highspeed camera instead of a microphone.
 
-Record pushing a button and getting a visual reaction on screen, then count the frames between the two events. ([example](https://youtu.be/P1FJGE0_1Tg))
+Record pushing a button and getting a visual reaction on screen, then count the frames between the two events and set your video offset to the elapsed time. ([example](https://youtu.be/P1FJGE0_1Tg))
 
 ## Notes
 
